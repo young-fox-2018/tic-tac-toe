@@ -8,12 +8,20 @@ function tic_tac_toe(row, col) {
             let XO = params[index]
             if (XO === "X") X++
             if (XO === "O") O++
-            if (X > 5) inner.push("O")
-            if (O > 5) inner.push("X")
+            if (X > 4) inner.push("O")
+            else if (O > 4) inner.push("X")
             else inner.push(XO)
         }
         boards.push(inner)
     }
-    return board
+    if (X > O) {
+        console.log(boards);
+        return " Pemenangnya O"
+    }
+    else {
+        console.log(boards);
+        return " Pemenangnya X"
+    }
+
 }
 console.log(tic_tac_toe(3, 3));
