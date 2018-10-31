@@ -14,8 +14,12 @@ function tic_tac_toe(row, col) {
         }
         boards.push(inner)
     }
-    console.log(`| ${boards[0]} | \n| ${boards[1]} |\n| ${boards[2]} |`
-    );
+    console.log("* GAME TIC-TAC-TOE *");
+    console.log("+------------------+");
+
+    console.log("+--+-+--+");
+    console.log(`| ${boards[0]} | \n| ${boards[1]} |\n| ${boards[2]} |`);
+    console.log("+--+-+--+");
     console.log(" ");
 
     let hasil = []
@@ -46,6 +50,8 @@ function tic_tac_toe(row, col) {
     }
     console.log("X : " + winnerX);
     console.log("O : " + winnerO);
+    console.log(" ");
+    console.log("Status: ");
 
 
 
