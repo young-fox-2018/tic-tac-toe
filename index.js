@@ -14,14 +14,52 @@ function tic_tac_toe(row, col) {
         }
         boards.push(inner)
     }
-    if (X > O) {
-        console.log(boards);
-        return " Pemenangnya O"
+    console.log(`| ${boards[0]} | \n| ${boards[1]} |\n| ${boards[2]} |`
+    );
+    console.log(" ");
+
+    let hasil = []
+    for (let i = 0; i < boards.length; i++) {
+        if (i === 0) {
+            let patern = boards[i][0]
+            if (boards[i][1] === patern && boards[i][2] === patern) hasil.push(patern)
+            if (boards[i + 1][0] === patern && boards[i + 2][0] === patern) hasil.push(patern)
+            if (boards[i + 1][1] === patern && boards[i + 2][2] === patern) hasil.push(patern)
+        }
+        else if (i === 2) {
+            let patern = boards[i][0]
+            if (boards[i][1] === patern && boards[i][2] === patern) hasil.push(patern)
+            if (boards[i - 1][1] === patern && boards[i - 2][2] === patern) hasil.push(patern)
+        }
+        else {
+            let patern = boards[i][0]
+            if (boards[i][1] === patern && boards[i][2] === patern) hasil.push(patern)
+            if (boards[i - 1][1] === patern && boards[i + 1][1] === patern && boards[i][1]) hasil.push(patern)
+            if (boards[i - 1][2] === patern && boards[i + 1][2] === patern && boards[i][2]) hasil.push(patern)
+
+        }
     }
-    else {
-        console.log(boards);
-        return " Pemenangnya X"
+    let winnerX = 0, winnerO = 0
+    for (let i = 0; i < hasil.length; i++) {
+        if (hasil[i] === "X") winnerX++
+        if (hasil[i] === "O") winnerO++
     }
 
+    if (winnerX > winnerO) {
+        return "X is winner"
+    }
+    else if (winnerX === 0 && winnerO === 0) {
+        if (X > O) return "O is winner"
+        else return "X is winner"
+    }
+    else if (winnerX === winnerO) {
+        return "Draw"
+    }
+    else if (winnerO > winnerX) {
+        return "O is winner"
+    }
+
+
 }
+
 console.log(tic_tac_toe(3, 3));
