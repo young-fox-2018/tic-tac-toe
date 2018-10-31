@@ -14,6 +14,7 @@ function tic_tac_toe(row, col) {
         }
         boards.push(inner)
     }
+    console.log(" ");
     console.log("* GAME TIC-TAC-TOE *");
     console.log("+------------------+");
 
