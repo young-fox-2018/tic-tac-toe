@@ -34,8 +34,8 @@ function tic_tac_toe(row, col) {
         else {
             let patern = boards[i][0]
             if (boards[i][1] === patern && boards[i][2] === patern) hasil.push(patern)
-            if (boards[i - 1][1] === patern && boards[i + 1][1] === patern && boards[i][1]) hasil.push(patern)
-            if (boards[i - 1][2] === patern && boards[i + 1][2] === patern && boards[i][2]) hasil.push(patern)
+            if (boards[i - 1][1] === boards[i][1] && boards[i + 1][1] === boards[i][1] && boards[i][1]) hasil.push(boards[i][1])
+            if (boards[i - 1][2] === boards[i][2] && boards[i + 1][2] === boards[i][2] && boards[i][2]) hasil.push(boards[i][2])
 
         }
     }
@@ -44,6 +44,10 @@ function tic_tac_toe(row, col) {
         if (hasil[i] === "X") winnerX++
         if (hasil[i] === "O") winnerO++
     }
+    console.log("X : " + winnerX);
+    console.log("O : " + winnerO);
+
+
 
     if (winnerX > winnerO) {
         return "X is winner"
