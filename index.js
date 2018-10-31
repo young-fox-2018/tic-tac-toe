@@ -1,20 +1,24 @@
 function playTicTacToe(){
     const XO = ["X","O"]
     var result = []
-
+    var batas = [4,5]
+    
+    var countO = 0
+    var countX = 0
+    var randombatas = Math.floor(Math.random()*Math.floor(batas.length))
     for(let i = 1 ; i <= 3; i++ ){
-        let countX = 0
-        let countO = 0
         var array = []
         for(let j = 1 ; j <= 3 ; j++){
-            var randomXO = Math.floor(Math.random()*Math.floor(XO.length))
-            if(randomXO === 0 && countX < 5){
-                array.push(XO[randomXO])
+            console.log(randombatas)
+            if(countX < batas[randombatas]){
+                array.push("X")
                 countX++
-            }if(randomXO === 1 && countO < 5){
-                array.push(XO[randomXO])
+            }else{
+                array.push("O")
                 countO++
             }
+            console.log("countX =>",countX)
+            console.log("countO =>",countO)
         }
 
         result.push(array)
